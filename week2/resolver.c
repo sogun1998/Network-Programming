@@ -32,7 +32,7 @@ int main(int argc, char const *argv[]) {
          char **pAlias;
         int i;
         for (pAlias = hostTent->h_aliases; *pAlias != NULL; pAlias++) {
-        printf("Alias IP #%d: %s\n", ++i, *pAlias);
+        printf("Alias IP #%d: %s\n", ++i, inet_ntoa(*((struct in_addr *)pAlias)));
         }     
   } else {
         struct hostent *hostTent;
@@ -55,7 +55,7 @@ int main(int argc, char const *argv[]) {
          char **pAlias;
 
         for (pAlias = hostTent->h_aliases; *pAlias != NULL; pAlias++) {
-        printf("Alternate name #%d: %s\n", ++i, *pAlias);
+        printf("Alternate name #%d: %s\n", ++i, inet_ntoa(*((struct in_addr *)pAlias)));
         }     
   }
 
